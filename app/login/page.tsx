@@ -7,10 +7,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { signIn } from "../utils/auth";
-
-export default function Login() {
+import { auth, signIn } from "../utils/auth";
+import { SubmitButton } from "../components/submit-button";
+import { redirect } from "next/navigation";
+export default async function Login() {
+  const session = await auth();
+  if (session?.user) {
+    redirect("/dashboard");
+  }
   return (
     <>
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
@@ -41,8 +45,7 @@ export default function Login() {
                   placeholder="hello@example.com"
                 />
               </div>
-
-              <Button type="submit">Submit</Button>
+              <SubmitButton text="Submit" />
             </form>
           </CardContent>
         </Card>
