@@ -1,14 +1,12 @@
-import { signOut } from "../utils/auth";
+import { ReactNode } from "react";
 import { requireUser } from "../utils/hooks";
 import Link from "next/link";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import Logo from "@/public/logo.png";
+import Image from "next/image";
+import { DashboardLinks } from "../components/dashboard-links";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, User2 } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,17 +15,35 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User2 } from "lucide-react";
-import Image from "next/image";
-import Logo from "@/public/logo.png";
-import { DashboardLinks } from "../components/dashboard-links";
+import { signOut } from "../utils/auth";
+import prisma from "../utils/db";
+import { redirect } from "next/navigation";
+import { Toaster } from "@/components/ui/sonner";
+
+async function getUser(userId: string) {
+  const data = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    select: {
+      firstName: true,
+      lastName: true,
+      address: true,
+    },
+  });
+
+  if (!data?.firstName || !data.lastName || !data.address) {
+    redirect("/onboarding");
+  }
+}
 
 export default async function DashboardLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const session = await requireUser();
+  await getUser(session.user?.id as string);
   return (
     <>
       <div className="grid min-h-screen w-full md:gird-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -37,7 +53,7 @@ export default async function DashboardLayout({
               <Link href="/" className="flex items-center gap-2">
                 <Image src={Logo} alt="Logo" className="size-7" />
                 <p className="text-2xl font-bold">
-                  Invoice<span className="text-blue-600">Platform</span>
+                  Invoice<span className="text-blue-600">Marshal</span>
                 </p>
               </Link>
             </div>
@@ -58,7 +74,6 @@ export default async function DashboardLayout({
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
-                <SheetTitle className="text-left">Navigation</SheetTitle>
                 <nav className="grid gap-2 mt-10">
                   <DashboardLinks />
                 </nav>
@@ -106,6 +121,7 @@ export default async function DashboardLayout({
           </main>
         </div>
       </div>
+      <Toaster richColors closeButton theme="light" />
     </>
   );
 }
