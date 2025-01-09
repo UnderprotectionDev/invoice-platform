@@ -4,7 +4,13 @@ import Link from "next/link";
 import Logo from "@/public/logo.png";
 import Image from "next/image";
 import { DashboardLinks } from "../components/dashboard-links";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu, User2 } from "lucide-react";
 import {
@@ -74,6 +80,9 @@ export default async function DashboardLayout({
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
+                <SheetHeader>
+                  <SheetTitle>Navigation</SheetTitle>
+                </SheetHeader>
                 <nav className="grid gap-2 mt-10">
                   <DashboardLinks />
                 </nav>
