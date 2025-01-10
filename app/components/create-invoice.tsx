@@ -28,7 +28,19 @@ import { invoiceSchema } from "../utils/zodSchemas";
 import { useForm } from "@conform-to/react";
 import { formatCurrency } from "../utils/formatCurrency";
 
-export function CreateInvoice() {
+interface iAppProps {
+  firstName: string;
+  lastName: string;
+  address: string;
+  email: string;
+}
+
+export function CreateInvoice({
+  address,
+  email,
+  firstName,
+  lastName,
+}: iAppProps) {
   const [lastResult, action] = useActionState(createInvoice, undefined);
   const [form, fields] = useForm({
     // Sync the result of last submission
@@ -129,14 +141,14 @@ export function CreateInvoice() {
                 <Input
                   name={fields.fromName.name}
                   key={fields.fromName.key}
-                  defaultValue={fields.fromName.initialValue}
+                  defaultValue={firstName + " " + lastName}
                   placeholder="Your Name"
                 />
                 <p className="text-sm text-red-500">{fields.fromName.errors}</p>
                 <Input
                   name={fields.fromEmail.name}
                   key={fields.fromEmail.key}
-                  defaultValue={fields.fromEmail.initialValue}
+                  defaultValue={email}
                   placeholder="Your Email"
                 />
                 <p className="text-sm text-red-500">
@@ -145,7 +157,7 @@ export function CreateInvoice() {
                 <Input
                   name={fields.fromAddress.name}
                   key={fields.fromAddress.key}
-                  defaultValue={fields.fromAddress.initialValue}
+                  defaultValue={address}
                   placeholder="Your Address"
                 />
                 <p className="text-sm text-red-500">
