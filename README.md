@@ -2,24 +2,22 @@
 
 # Invoice Platform 📊
 
+Modern and user-friendly invoice management platform built with the latest web technologies.
+
+![Hero Image](/public/landingpage.png)
+
 [![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Auth.js](https://img.shields.io/badge/Auth.js-000000?style=for-the-badge&logo=auth0&logoColor=white)](https://authjs.dev/)
+[![Auth.js](https://img.shields.io/badge/Auth.js-4318FF?style=for-the-badge&logo=auth0&logoColor=white)](https://authjs.dev/)
 [![Zod](https://img.shields.io/badge/Zod-3068B7?style=for-the-badge&logo=zod&logoColor=white)](https://zod.dev/)
 [![Conform](https://img.shields.io/badge/Conform-000000?style=for-the-badge&logo=conform&logoColor=white)](https://conform.guide/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
-[![Neon DB](https://img.shields.io/badge/Neon_DB-00E699?style=for-the-badge&logo=neon&logoColor=black)](https://neon.tech/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Shadcn/ui](https://img.shields.io/badge/Shadcn/ui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)](https://ui.shadcn.com/)
 [![Mailtrap](https://img.shields.io/badge/Mailtrap-239BCD?style=for-the-badge&logo=mailtrap&logoColor=white)](https://mailtrap.io/)
 [![jsPDF](https://img.shields.io/badge/jsPDF-FF0000?style=for-the-badge&logo=adobe&logoColor=white)](https://parall.ax/products/jspdf)
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
-
----
-
-Modern and user-friendly invoice management platform built with the latest web technologies.
-
-![Hero Image](/public/landingpage.png)
 
 </div>
 
