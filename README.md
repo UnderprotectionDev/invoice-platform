@@ -113,3 +113,32 @@ Visit [http://localhost:3000](http://localhost:3000) to see your application
 ![Hero Image](/public/hero3.png)
 
 </div>
+
+## 🔐 Environment Variables
+
+To run this project, you will need to add the following environment variables to your `.env` file:
+
+| Variable                | Description                   |
+| ----------------------- | ----------------------------- |
+| `AUTH_SECRET`           | Secret key for authentication |
+| `EMAIL_SERVER_USER`     | SMTP server username          |
+| `EMAIL_SERVER_PASSWORD` | SMTP server password          |
+| `EMAIL_SERVER_HOST`     | SMTP server host              |
+| `EMAIL_SERVER_PORT`     | SMTP server port              |
+| `EMAIL_FROM`            | Email sender address          |
+| `MAILTRAP_TOKEN`        | Mailtrap API token            |
+| `DATABASE_URL`          | PostgreSQL database URL       |
+
+```
+AUTH_SECRET=""
+
+EMAIL_SERVER_USER=
+EMAIL_SERVER_PASSWORD=
+EMAIL_SERVER_HOST=
+EMAIL_SERVER_PORT=
+EMAIL_FROM=
+
+MAILTRAP_TOKEN=
+
+DATABASE_URL=""
+```
